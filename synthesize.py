@@ -11,7 +11,7 @@ import torch
 torch.autograd.set_detect_anomaly(True)
 def Gatys_and_alSynthesize(texture_image):
     texture_image = load_image(texture_image)  # Load the texture image
-    style_layers = [0, 5, 10, 19, 28]  # Corrected VGG-19 style layer indices
+    style_layers = [0, 5, 10, 19, 25,30]  # Corrected VGG-19 style layer indices
     vgg = get_vgg_model()# Load pretrained VGG-19
     style_extractor = VGGStyleExtractor(vgg, style_layers)
     style_features = style_extractor(texture_image)
@@ -20,7 +20,7 @@ def Gatys_and_alSynthesize(texture_image):
     input_image = torch.randn_like(texture_image, requires_grad=True)
 
     # Optimiseur (Adam ou LBFGS)
-    optimizer = optim.Adam([input_image], lr=0.01)
+    optimizer = optim.LBFGS([input_image])
 
     # Fonction de perte (MSE entre matrices de Gram)
     loss_fn = nn.MSELoss()

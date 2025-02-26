@@ -6,7 +6,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 transform = transforms.Compose([
-    transforms.Resize((128, 128)),
+    transforms.Resize((256, 256)),
     transforms.ToTensor()
 ])
 
