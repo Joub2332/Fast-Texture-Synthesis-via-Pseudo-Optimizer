@@ -5,7 +5,7 @@ from torchvision import models, transforms
 from PIL import Image
 import matplotlib.pyplot as plt
 from utils import gram_matrix
-from utils import load_image
+
 class VGGStyleExtractor(nn.Module):
     """Extracts style features from selected VGG-19 layers"""
     def __init__(self, vgg, style_layers):
