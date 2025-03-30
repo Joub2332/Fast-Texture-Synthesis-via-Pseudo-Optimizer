@@ -2,6 +2,7 @@ import torch
 import os
 import torch.nn as nn
 import torch.optim as optim
+<<<<<<< HEAD
 import matplotlib as plt
 from PIL import Image
 from train import Gatys_and_alTraining
@@ -12,6 +13,14 @@ from train import train_pseudo_optimizer
 torch.autograd.set_detect_anomaly(True)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+=======
+from PIL import Image
+from train import Gatys_and_alTraining
+from utils import load_image,get_vgg_model
+from model import VGGStyleExtractor
+
+torch.autograd.set_detect_anomaly(True)
+>>>>>>> cfcfe751498c9f6c23a2e12c161d2a7246cf4a6f
 def Gatys_and_alSynthesize(texture_image,output_path,num_iterations,device):
     texture_image = load_image(texture_image).to(device)  # Load the texture image
     style_layers = [0, 5, 10, 19, 25,30]  # Corrected VGG-19 style layer indices
@@ -31,6 +40,7 @@ def Gatys_and_alSynthesize(texture_image,output_path,num_iterations,device):
     final_image_pil = Image.fromarray((final_image * 255).clip(0,255).astype("uint8"))
     final_image_pil.save(output_path)
     
+<<<<<<< HEAD
 # Fonction principale pour exécuter la synthèse sur toutes les images du dataset
 def synthesize_all_images(dataset_path, output_folder):
     os.makedirs(output_folder, exist_ok=True)  # Crée le dossier de sortie s'il n'existe pas
@@ -177,4 +187,18 @@ def Progressive_Pseudo_Optimizer(texture_images):
 
                 # Compute gradients w.r.t. texture loss
 
+=======
 
+# Fonction pour charger une image et la transformer en tenseur
+# Fonction principale pour exécuter la synthèse sur toutes les images du dataset
+def synthesize_all_images(dataset_path, output_folder):
+    os.makedirs(output_folder, exist_ok=True)  # Crée le dossier de sortie s'il n'existe pas
+>>>>>>> cfcfe751498c9f6c23a2e12c161d2a7246cf4a6f
+
+    for filename in os.listdir(dataset_path):
+        if filename.endswith((".jpg", ".png", ".jpeg")):  # Vérifie si c'est une image
+            image_path = os.path.join(dataset_path, filename)
+            print(f"Processing: {filename}")
+            # Charger l'image
+            Gatys_and_alSynthesize(image_path,output_folder)
+    print("Synthèse terminée pour toutes les images.")
