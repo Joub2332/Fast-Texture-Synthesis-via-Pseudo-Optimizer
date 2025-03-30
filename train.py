@@ -36,7 +36,6 @@ def Gatys_and_alTraining(input_image, num_iterations, optimizer, style_extractor
 
     return loss_list
 
-<<<<<<< HEAD
 def train_pseudo_optimizer(texture_imgs_path,model, num_epochs=1000, lr=0.01, num_iter=10):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     torch.cuda.empty_cache()
@@ -132,6 +131,4 @@ def train_pseudo_optimizer(texture_imgs_path,model, num_epochs=1000, lr=0.01, nu
 
     return pseudo_optimizer
 
-=======
->>>>>>> cfcfe751498c9f6c23a2e12c161d2a7246cf4a6f
    
