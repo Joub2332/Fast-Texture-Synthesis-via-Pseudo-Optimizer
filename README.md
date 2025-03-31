@@ -132,15 +132,32 @@ The performance of the pseudo-optimizer-based texture synthesis method was evalu
 
 Here are some examples of generated textures:
 
-For Gatys and Al algorithm : 
+For Gatys and Al algorithm (upside are the inputs and downside are the outputs) :
 
-For the Classic Pseudo Optimizer :
+![gatys1](pictures/gat1.png)
 
-For the Adaptive Pseudo Optimizer : 
+![gatys1](pictures/gat2.png)
 
-For the Progressive Pseudo Optimizer :
+For the Classic Pseudo Optimizer (upside are the inputs and downside are the outputs)  :
 
-![Generated Textures](images/generated_textures.png)
+![PO1](pictures/po1.png)
+
+![PO2](pictures/po2.png)
+For the Adaptive Pseudo Optimizer (first the inputs and then the output): 
+
+For the Progressive Pseudo Optimizer (first the inputs and then the output):
+
+case 1 :
+
+![propo1](pictures/propo1gt.png)
+
+![propo1](pictures/propo1.png)
+
+case 2 :
+
+![propo2](pictures/propo2gt.png)
+
+![propo2](pictures/propo2.png)
 
 ## Acknowledgements
 
