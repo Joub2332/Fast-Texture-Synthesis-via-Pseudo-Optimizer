@@ -145,19 +145,23 @@ For the Classic Pseudo Optimizer (upside are the inputs and downside are the out
 ![PO2](pictures/po2.png)
 For the Adaptive Pseudo Optimizer (first the inputs and then the output): 
 
+![adapo1](pictures/adapo1.png)
+
+![adapo2](pictures/adapo2.png)
+
 For the Progressive Pseudo Optimizer (first the inputs and then the output):
 
 case 1 :
 
 ![propo1](pictures/propo1gt.png)
 
-![propo1](pictures/propo1.png)
+![propo1gt](pictures/propo1.png)
 
 case 2 :
 
 ![propo2](pictures/propo2gt.png)
 
-![propo2](pictures/propo2.png)
+![propo2gt](pictures/propo2.png)
 
 ## Acknowledgements
 
