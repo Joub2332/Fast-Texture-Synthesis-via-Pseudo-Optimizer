@@ -86,21 +86,25 @@ The **Gatys and Al Algorithm** is a pioneering method in neural style transfer a
 
 ### Training the Models and Synthesize
 To train the **Gatys and Al Algorithm**, run:
+
 '''
 python -c "from synthesize import Gatys_and_alSynthesize; Gatys_and_alSynthesize('path/to/texture.jpg', 'path/to/output.jpg', 300, 'cuda')"
 '''
 
 To train the **Classic Pseudo Optimizer**, run:
+
 '''
 python -c "from synthesize import Pseudo_optimizerSynthesize; Pseudo_optimizerSynthesize('path/to/texture.jpg')"
 '''
 
 To train the **Adaptive Pseudo Optimizer**, run:
+
 '''
 python -c "from synthesize import Adaptive_Pseudo_Optimizer; Adaptive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
 '''
 
 To train the **Progressive Pseudo Optimizer**, run:
+
 '''
 python -c "from synthesize import Progressive_Pseudo_Optimizer; Progressive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
 '''
