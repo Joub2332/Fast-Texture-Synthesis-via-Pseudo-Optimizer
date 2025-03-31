@@ -138,6 +138,13 @@ Here are some examples of generated textures:
 
 This project was developed as part of the Computational Imaging course at IMT Atlantique, supervised by Daniel-Zhu.
 
+## Links
+Here are some usefull links :
+
+Our presentation of the project is available [here](https://www.canva.com/design/DAGiuT4c1VE/1s8dMtq2PBPg2NaRC1B28w/edit)
+
+Our project is based on [this paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Shi_Fast_Texture_Synthesis_via_Pseudo_Optimizer_CVPR_2020_paper.pdf)
+
 ## Authors
 
 - **Skander MAHJOUB**, email: skander.mahjoub@imt-atlantique.net
