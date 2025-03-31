@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 The proposed method relies on using a **pseudo-optimizer** for texture synthesis. Unlike traditional approaches based on costly iterative optimizations, this method employs an efficient approximation that reduces computation time while maintaining high texture quality.
 
-![Texture Synthesis Architecture](images/texture_synthesis_architecture.png)
+![Pseudo Optimizer Architecture](pictures/pseudoOptimizer.png)
 
 #### Key Features:
 
@@ -55,6 +55,8 @@ The **Adaptive Pseudo Optimizer** builds upon the classic version by dynamically
 
 The **Progressive Pseudo Optimizer** takes the adaptive approach further by introducing a multi-stage refinement process, progressively enhancing texture quality.
 
+![Progressive Pseudo Optimizer Architecture](pictures/propo.png)
+
 #### Key Features:
 - **Multi-Stage Optimization**: Improves texture details iteratively for higher fidelity.
 - **Fine-Grained Control**: Allows more precise adjustments at each stage.
@@ -68,6 +70,9 @@ The **Progressive Pseudo Optimizer** takes the adaptive approach further by intr
 
 The **Gatys and Al Algorithm** is a pioneering method in neural style transfer and texture synthesis. It utilizes a **pre-trained VGG network** to extract feature representations of images and then optimizes a noise image to match the statistics of a reference texture.
 
+![Gatys and Al Architecture](pictures/gatys.png)
+
+
 #### Key Features:
 - **Neural-Based Approach**: Uses deep learning for high-quality texture generation.
 - **Gram Matrix Representation**: Captures the style and texture of an image through feature correlations.
@@ -79,56 +84,51 @@ The **Gatys and Al Algorithm** is a pioneering method in neural style transfer a
 
 ## Usage
 
-### Preparing the Dataset
-Place the input texture images inside the `input_textures` folder. Ensure that they are in a supported format (PNG, JPEG) and have a uniform resolution for optimal results.
+### Training the Models and Synthesize
+To train the **Gatys and Al Algorithm**, run:
 
-### Training the Models
+```
+python -c "from synthesize import Gatys_and_alSynthesize; Gatys_and_alSynthesize('path/to/texture.jpg', 'path/to/output.jpg', 300, 'cuda')"
+```
+
 To train the **Classic Pseudo Optimizer**, run:
-```bash
-python train.py --model classic --data_dir input_textures --epochs 50 --batch_size 8 --device ("cpu" or "cuda")
 
+```
+python -c "from synthesize import Pseudo_optimizerSynthesize; Pseudo_optimizerSynthesize('path/to/texture.jpg')"
+```
 
-### Preparation
-
-To prepare the data for texture synthesis, place your sample images in the `input_textures` folder. Ensure the images are in the appropriate format (e.g., PNG or JPEG) and have a uniform size for optimal results.
-
-### Training
-
-To train the model on your custom dataset, use the following script:
+To train the **Adaptive Pseudo Optimizer**, run:
 
 ```bash
-python train.py --data_dir input_textures --epochs 50 --batch_size 8 --device ("cpu" or "cuda")
+python -c "from synthesize import Adaptive_Pseudo_Optimizer; Adaptive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
+```
+
+To train the **Progressive Pseudo Optimizer**, run:
+
+```
+python -c "from synthesize import Progressive_Pseudo_Optimizer; Progressive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
 ```
 
 #### Loss Function
 
-The model is trained by minimizing a loss function that evaluates the difference between the generated texture and the input sample. The Adam optimizer is used to adjust the model weights with a learning rate tuned for stable convergence.
+The model is trained by minimizing a loss function that evaluates the difference between the generated texture and the input sample. The Adam optimizer is used to adjust the model weights with a learning rate tuned for stable convergence for the optimizer models and the LBFGS optimizer is used for the Gatys and Al algorithm.
 
 ### Evaluation
 
 To evaluate the model on a dataset, use the following script:
 
-```bash
-python evaluate.py --model_path path_to_your_model.pt --data_dir input_textures --device ("cpu" or "cuda") --batch_size 8
 ```
-
-### Texture Synthesis
-
-To generate new textures from a given example, run:
-
-```bash
-python synthesize.py --model_path path_to_your_model.pt --input_image path_to_input_image.png --output_image path_to_output_image.png --device ("cpu" or "cuda")
+python evaluate.py --model_path path_to_your_model.pt --data_dir input_textures --device ("cpu" or "cuda") --batch_size 8
 ```
 
 ## Results
 
-The performance of the pseudo-optimizer-based texture synthesis method was evaluated in terms of visual quality and computation time. The results show a significant improvement in efficiency without compromising the quality of the generated textures.
+The performance of the pseudo-optimizer-based texture synthesis method was evaluated in terms of visual quality and diversity. To do so, we used the average texture loss and the average diversity loss.
 
-| Metric                | Value               |
-| --------------------- | ------------------ |
-| Synthesis Time       | 0.5 seconds        |
-| Structural Similarity Index (SSIM) | 0.95              |
-| Mean Squared Error (MSE) | 0.01              |
+| Metric                | Gatys and Al        | Classic Pseudo Optimizer| 
+| --------------------- | ------------------ |------------------ |
+| Average Texture loss        | 4.35          | 6.26 |
+| Average Diversity loss |6.1x10^6             | 4.3x10^6|
 
 Here are some examples of generated textures:
 
@@ -136,7 +136,14 @@ Here are some examples of generated textures:
 
 ## Acknowledgements
 
-This project was developed as part of the Deep Learning course at IMT Atlantique, supervised by Pierre-Henri Conze.
+This project was developed as part of the Computational Imaging course at IMT Atlantique, supervised by Daniel-Zhu.
+
+## Links
+Here are some usefull links :
+
+Our presentation of the project is available [here](https://www.canva.com/design/DAGiuT4c1VE/1s8dMtq2PBPg2NaRC1B28w/edit)
+
+Our project is based on [this paper](https://openaccess.thecvf.com/content_CVPR_2020/papers/Shi_Fast_Texture_Synthesis_via_Pseudo_Optimizer_CVPR_2020_paper.pdf)
 
 ## Authors
 
