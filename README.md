@@ -87,27 +87,27 @@ The **Gatys and Al Algorithm** is a pioneering method in neural style transfer a
 ### Training the Models and Synthesize
 To train the **Gatys and Al Algorithm**, run:
 
-'''
+```
 python -c "from synthesize import Gatys_and_alSynthesize; Gatys_and_alSynthesize('path/to/texture.jpg', 'path/to/output.jpg', 300, 'cuda')"
-'''
+```
 
 To train the **Classic Pseudo Optimizer**, run:
 
-'''
+```
 python -c "from synthesize import Pseudo_optimizerSynthesize; Pseudo_optimizerSynthesize('path/to/texture.jpg')"
-'''
+```
 
 To train the **Adaptive Pseudo Optimizer**, run:
 
-'''
+```bash
 python -c "from synthesize import Adaptive_Pseudo_Optimizer; Adaptive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
-'''
+```
 
 To train the **Progressive Pseudo Optimizer**, run:
 
-'''
+```
 python -c "from synthesize import Progressive_Pseudo_Optimizer; Progressive_Pseudo_Optimizer(['path/to/texture1.jpg', 'path/to/texture2.jpg'])"
-'''
+```
 
 #### Loss Function
 
@@ -117,9 +117,9 @@ The model is trained by minimizing a loss function that evaluates the difference
 
 To evaluate the model on a dataset, use the following script:
 
-'''bash
+```
 python evaluate.py --model_path path_to_your_model.pt --data_dir input_textures --device ("cpu" or "cuda") --batch_size 8
-'''
+```
 
 ## Results
 
@@ -136,7 +136,7 @@ Here are some examples of generated textures:
 
 ## Acknowledgements
 
-This project was developed as part of the Deep Learning course at IMT Atlantique, supervised by Pierre-Henri Conze.
+This project was developed as part of the Computational Imaging course at IMT Atlantique, supervised by Daniel-Zhu.
 
 ## Authors
 
